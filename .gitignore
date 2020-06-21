@@ -1,0 +1,7 @@
+*.csv.gz
+*.part
+.ipynb_checkpoints/*
+dask-worker-space/*
+*/.ipynb_checkpoints/*
+*/dask-worker-space/*
+*/data/*
