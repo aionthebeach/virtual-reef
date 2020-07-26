@@ -16,7 +16,7 @@ over time.
 4. Run `conda activate virtualreef`. This activates the conda environment for the project and you should be able to run the project.
 
 ## Running the Project
-In the `virtualreef` directory run `pytyhon manage.py runserver`
+In the `virtualreef` directory run `python manage.py runserver`
 
 To see all Django commands run `python manage.py help`. The most common commands to run include:
 * migrate
