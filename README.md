@@ -31,3 +31,5 @@ To see all Django commands run `python manage.py help`. The most common commands
 5. Contact a maintainer to review your PR
 6. After review, your PR is either **Accepted** and will be merged, or will have **Changes Requested**. The requested changes should be detailed in comments from a maintainer.
 
+## License
+This project uses the [Apache License](https://github.com/aionthebeach/virtual-reef/license).
