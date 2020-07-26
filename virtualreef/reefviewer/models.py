@@ -42,7 +42,7 @@ class ReefTransect(models.Model):
 	ReefTransect
 
 	Discussion:
-
+	Represents a single transect line on a specific survey.
 	"""
 	survey = models.ForeignKey(ReefSurvey, on_delete=models.CASCADE)
 

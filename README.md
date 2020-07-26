@@ -15,5 +15,19 @@ over time.
 3. Run `conda env create -f environment.yml`. This will create the `virtualreef` environment.
 4. Run `conda activate virtualreef`. This activates the conda environment for the project and you should be able to run the project.
 
+## Running the Project
+In the `virtualreef` directory run `pytyhon manage.py runserver`
+
+To see all Django commands run `python manage.py help`. The most common commands to run include:
+* migrate
+* makemigrations
+* test
+
 ## How to Contribute
+1. Go to our [Issues](https://github.com/aionthebeach/virtual-reef/issues) and add a comment asking to work on an unassigned issue. Feel free to ask questions about how to solve an issue! We try to provide as much detail as possible about an issue to solve it, but details can come up while working on something that the creator of the issue didn't think about.
+2. Fork the project to get a copy you can work on freely.
+3. Make your changes on your forked copy (edit code, edit assets, etc).
+4. Create a Pull Request to [the main repo](https://github.com/aionthebeach/virtual-reef)
+5. Contact a maintainer to review your PR
+6. After review, your PR is either **Accepted** and will be merged, or will have **Changes Requested**. The requested changes should be detailed in comments from a maintainer.
 
