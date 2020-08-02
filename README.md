@@ -9,6 +9,10 @@ The intended audience is people who may not be familiar with the underwater envi
 so granular precision isn't as important as giving an accurate impression of the environment
 over time.
 
+Virtual Reef is a tool to build images of the coastal reefs surveyed by California Reef Check.
+We want to generate images that show the density of plants, fish, and invertebrates on the reef. 
+We will read in the survey data for each 
+
 ## Installation
 1. Install [Python 3.8](https://www.python.org/downloads/). Any 3.8 version should be fine.
 2. Install [Anaconda](https://www.anaconda.com/products/individual). We use Anaconda for dependency management.
