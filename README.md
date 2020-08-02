@@ -16,7 +16,7 @@ We will read in the survey data for each
 ## Installation
 1. Install [Python 3.8](https://www.python.org/downloads/). Any 3.8 version should be fine.
 2. Install [Anaconda](https://www.anaconda.com/products/individual). We use Anaconda for dependency management.
-3. Run `conda env create -f environment.yml`. This will create the `virtualreef` environment.
+3. If you're on Windows, run `conda env create -f winenv.yml`. If you're on Mac or Linux, run `conda env create -f nixenv.yml`. This will create the `virtualreef` environment.
 4. Run `conda activate virtualreef`. This activates the conda environment for the project and you should be able to run the project.
 
 ## Running the Project
