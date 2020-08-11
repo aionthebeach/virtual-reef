@@ -15,9 +15,10 @@ We will read in the survey data for each
 
 ## Installation
 1. Install [Python 3.8](https://www.python.org/downloads/). Any 3.8 version should be fine.
-2. Install [Anaconda](https://www.anaconda.com/products/individual). We use Anaconda for dependency management.
-3. If you're on Windows, run `conda env create -f winenv.yml`. If you're on Mac or Linux, run `conda env create -f nixenv.yml`. This will create the `virtualreef` environment.
-4. Run `conda activate virtualreef`. This activates the conda environment for the project and you should be able to run the project.
+2. Install [pipenv](https://github.com/pypa/pipenv) by running `pip install pipenv`
+3. Configure pipenv to use Python 3 by running `pipenv --three`
+4. Install Django `pipenv install django`
+5. Activate your pipenv shell by running `pipenv shell`. You will need to have the pipenv shell active to run the server.
 
 ## Running the Project
 In the `virtualreef` directory run `python manage.py runserver`
@@ -34,6 +35,14 @@ To see all Django commands run `python manage.py help`. The most common commands
 4. Create a Pull Request to [the main repo](https://github.com/aionthebeach/virtual-reef)
 5. Contact a maintainer to review your PR
 6. After review, your PR is either **Accepted** and will be merged, or will have **Changes Requested**. The requested changes should be detailed in comments from a maintainer.
+
+## FAQs
+### My server doesn't run when I try `python manage.py runserver`
+Did you get an error like this?
+`ImportError: Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?`
+If so, make sure you ran `pipenv install django` and `pipenv shell`
+
+If you got another kind of error, contact the maintainers and we'll do our best to help!
 
 ## License
 This project uses the [Apache License](https://github.com/aionthebeach/virtual-reef/license).
