@@ -2,6 +2,9 @@
 
 ## Maintainers
 Owen Pierce (owen@aionthebeach.com)
+Praful Mathur (praful@aionthebeach.com)
+Eric Simmons (eric@aionthebeach.com)
+
 
 ## Goals
 Reef Check needs a good way to generate visualizations based on the data from surveys.
