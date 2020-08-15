@@ -48,4 +48,4 @@ If so, make sure you ran `pipenv install django` and `pipenv shell`
 If you got another kind of error, contact the maintainers and we'll do our best to help!
 
 ## License
-This project uses the [Apache License](https://github.com/aionthebeach/virtual-reef/license.txt).
+This project uses the [Apache License](https://github.com/aionthebeach/virtual-reef/blob/main/license.txt).
