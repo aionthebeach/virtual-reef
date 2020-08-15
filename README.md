@@ -1,8 +1,8 @@
 # Virtual Reef
 
 ## Maintainers
-Owen Pierce (owen@aionthebeach.com)
-Praful Mathur (praful@aionthebeach.com)
+Owen Pierce (owen@aionthebeach.com)  
+Praful Mathur (praful@aionthebeach.com)  
 Eric Simmons (eric@aionthebeach.com)
 
 
