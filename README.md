@@ -47,5 +47,8 @@ If so, make sure you ran `pipenv install django` and `pipenv shell`
 
 If you got another kind of error, contact the maintainers and we'll do our best to help!
 
+### Where does the data live?
+We keep our data in [Quilt](https://open.quiltdata.com/b/ai-on-the-beach/tree/aionthebeach/reef-check/).
+
 ## License
 This project uses the [Apache License](https://github.com/aionthebeach/virtual-reef/blob/main/license.txt).
