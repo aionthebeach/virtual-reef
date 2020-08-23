@@ -17,10 +17,12 @@ We want to generate images that show the density of plants, fish, and invertebra
 We will read in the survey data for each 
 
 ## Installation
-1. Install [Python 3.8](https://www.python.org/downloads/). Any 3.8 version should be fine.
+1. Install [Python 3.8 64-bit](https://www.python.org/downloads/release/python-385/). Make sure to install a 64-bit version of Python.
+	- [Best Windows Version](https://www.python.org/ftp/python/3.8.5/python-3.8.5-amd64.exe)
+	- [Best Mac Version](https://www.python.org/ftp/python/3.8.5/python-3.8.5-macosx10.9.pkg)
 2. Install [pipenv](https://github.com/pypa/pipenv) by running `pip install pipenv`
 3. Configure pipenv to use Python 3 by running `pipenv --three`
-4. Install Django `pipenv install django`
+4. Install packages `pipenv install`
 5. Activate your pipenv shell by running `pipenv shell`. You will need to have the pipenv shell active to run the server.
 
 ## Running the Project
