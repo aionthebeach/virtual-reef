@@ -4,10 +4,13 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pylint = "*"
 
 [packages]
 django = "*"
-quilt = "*"
+quilt3 = "*"
+pandas = "*"
+pyarrow = "*"
 
 [requires]
 python_version = "3.8"

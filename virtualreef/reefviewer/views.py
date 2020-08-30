@@ -9,5 +9,9 @@ def index(request):
 # scripts
 def syncUpc(request):
 	dataSycned = scripts.fetchUpcData()
+	#for row in df.rows:
+	#	get_or_create
+
 	return HttpResponse("We synced the UPC data: " + str(dataSycned))
+
 
