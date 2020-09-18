@@ -8,6 +8,10 @@ def index(request):
 
 # scripts
 def syncUpc(request):
-	dataSycned = scripts.fetchUpcData()
-	return HttpResponse("We synced the UPC data: " + str(dataSycned))
+	dataSynced = scripts.fetchUpcData()
+	return HttpResponse("We synced the UPC data: " + str(dataSynced))
 
+def syncInvert(request):
+	dataSynced = scripts.fetchInvertebrateData()
+	return HttpResponse("We synced the Invert data: " + str(dataSynced))
+	

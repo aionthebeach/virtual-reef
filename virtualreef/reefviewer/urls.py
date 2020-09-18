@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('syncUpc', views.syncUpc, name='syncUpc')
+    path('syncUpc', views.syncUpc, name='syncUpc'),
+    path('syncInvert', views.syncInvert, name='syncInvert')
 ]
 

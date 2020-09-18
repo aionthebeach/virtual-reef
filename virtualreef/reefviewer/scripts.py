@@ -1,5 +1,6 @@
 from . import models
 import quilt3
+import os
 
 def fetchUpcData():
 	print("Get the UPC data!")

@@ -1,5 +1,5 @@
 from django.db import models
-import utilities
+from .utilities import convertToCamelCase
 
 # Create your models here.
 class ReefSite(models.Model):
@@ -123,8 +123,8 @@ class SpeciesSubsampleField(models.Field):
 	amount = models.IntegerField(default=0)
 	distance = models.IntegerField(default=0)
 
-	def __init__(self, speciesName, surveyCount, surveyDistance):
-		super(SpeciesSubsample, self).__init__()
+	def __init__(self, speciesName, surveyCount=0, surveyDistance=0):
+		super(SpeciesSubsampleField, self).__init__()
 		self.name = speciesName
 		self.amount = surveyCount
 		self.distance = surveyDistance
@@ -144,38 +144,38 @@ class SurveyInvertebrate(models.Model):
 	# Linked Survey
 	models.ForeignKey(ReefTransect, on_delete=models.CASCADE)
 
-	batStar = models.SpeciesSubsampleField()
-	blackAbalone = models.SpeciesSubsampleField()
-	brownGoldenGorgonian = models.SpeciesSubsampleField()
-	californiaSeaCucumber = models.SpeciesSubsampleField()
-	californiaSpinyLobster = models.SpeciesSubsampleField()
-	chestnutCowry = models.SpeciesSubsampleField()
-	flatAbalone = models.SpeciesSubsampleField()
-	giantKeyholeLimpet = models.SpeciesSubsampleField()
-	giantSpinedStar = models.SpeciesSubsampleField()
-	greenAbalone = models.SpeciesSubsampleField()
-	gumbootChiton = models.SpeciesSubsampleField()
-	kelletsWhelk = models.SpeciesSubsampleField()
-	largeAnenome = models.SpeciesSubsampleField()
-	pinkAbalone = models.SpeciesSubsampleField()
-	pintoAbalone = models.SpeciesSubsampleField()
-	purpleUrchin = models.SpeciesSubsampleField()
-	redAbalone = models.SpeciesSubsampleField()
-	redGorgonian = models.SpeciesSubsampleField()
-	redUrchin = models.SpeciesSubsampleField()
-	rockCrab = models.SpeciesSubsampleField()
-	rockScallop = models.SpeciesSubsampleField()
-	sheepMaskingCrab = models.SpeciesSubsampleField()
-	shortSpinedSeaStar = models.SpeciesSubsampleField()
-	sunflowerSunStar = models.SpeciesSubsampleField()
-	unknownAbalone = models.SpeciesSubsampleField()
-	wartySeaCucumber = models.SpeciesSubsampleField()
-	wavyRedTurbanSnail = models.SpeciesSubsampleField()
+	batStar = SpeciesSubsampleField(speciesName="batStar")
+	blackAbalone = SpeciesSubsampleField(speciesName="blackAbalone")
+	brownGoldenGorgonian = SpeciesSubsampleField(speciesName="brownGoldenGorgonian")
+	californiaSeaCucumber = SpeciesSubsampleField(speciesName="californiaSeaCucumber")
+	californiaSpinyLobster = SpeciesSubsampleField(speciesName="californiaSpinyLobster")
+	chestnutCowry = SpeciesSubsampleField(speciesName="chestnutCowry")
+	flatAbalone = SpeciesSubsampleField(speciesName="flatAbalone")
+	giantKeyholeLimpet = SpeciesSubsampleField(speciesName="giantKeyholeLimpet")
+	giantSpinedStar = SpeciesSubsampleField(speciesName="giantSpinedStar")
+	greenAbalone = SpeciesSubsampleField(speciesName="greenAbalone")
+	gumbootChiton = SpeciesSubsampleField(speciesName="gumbootChiton")
+	kelletsWhelk = SpeciesSubsampleField(speciesName="kelletsWhelk")
+	largeAnenome = SpeciesSubsampleField(speciesName="largeAnenome")
+	pinkAbalone = SpeciesSubsampleField(speciesName="pinkAbalone")
+	pintoAbalone = SpeciesSubsampleField(speciesName="pintoAbalone")
+	purpleUrchin = SpeciesSubsampleField(speciesName="purpleUrchin")
+	redAbalone = SpeciesSubsampleField(speciesName="redAbalone")
+	redGorgonian = SpeciesSubsampleField(speciesName="redGorgonian")
+	redUrchin = SpeciesSubsampleField(speciesName="redUrchin")
+	rockCrab = SpeciesSubsampleField(speciesName="rockCrab")
+	rockScallop = SpeciesSubsampleField(speciesName="rockScallop")
+	sheepMaskingCrab = SpeciesSubsampleField(speciesName="sheepMaskingCrab")
+	shortSpinedSeaStar = SpeciesSubsampleField(speciesName="shortSpinedSeaStar")
+	sunflowerSunStar = SpeciesSubsampleField(speciesName="sunflowerSunStar")
+	unknownAbalone = SpeciesSubsampleField(speciesName="unknownAbalone")
+	wartySeaCucumber = SpeciesSubsampleField(speciesName="wartySeaCucumber")
+	wavyRedTurbanSnail = SpeciesSubsampleField(speciesName="wavyRedTurbanSnail")
 
 	def __init__(self, **kwargs):
 		super(SurveyInvertebrate, self).__init__()
-		for (prop, default) in prop_defaults.iteritems():
-            setattr(self, prop, kwargs.get(prop, default))
+		# for (prop, default) in prop_defaults.iteritems():
+		# 	setattr(self, prop, kwargs.get(prop, default))
 		
 class SurveyAlgae(models.Model):
 	"""
