@@ -1,4 +1,5 @@
 from django.db import models
+import utilities
 
 # Create your models here.
 class ReefSite(models.Model):
@@ -51,9 +52,12 @@ class ReefTransect(models.Model):
 	depth = models.DecimalField(default=0, max_digits=10, decimal_places=5)
 	temp = models.DecimalField(default=0, max_digits=10, decimal_places=5)
 
-	def __init__(self, arg):
+	def __init__(self, transectVis, transectHeading, transectDepth, transectTemp):
 		super(ReefTransect, self).__init__()
-		self.arg = arg
+		self.visibility = transectVis
+		self.heading = transectHeading
+		self.depth = transectDepth
+		self.temp = transectTemp
 		
 
 class SurveyUPC(models.Model):
@@ -102,10 +106,81 @@ class SurveyUPC(models.Model):
 	def __init__(self, arg):
 		super(SurveyUPC, self).__init__()
 		self.arg = arg
-		
-class SurveyAlgae(object):
+
+class SpeciesSubsampleField(models.Field):
 	"""
-	docstring for SurveyAlgae
+	SpeciesSubsample
+	Class for species that can be subsampled
+	For these species, when the surveyor counts 50 individuals, the surveyor
+	can stop counting and mark the distance at which they found 50.
+
+	Discussion:
+	Distance has a maximum value of 30
+	Amount can be greater than 50, but not usually
+	"""
+
+	name = models.CharField(max_length=50)
+	amount = models.IntegerField(default=0)
+	distance = models.IntegerField(default=0)
+
+	def __init__(self, speciesName, surveyCount, surveyDistance):
+		super(SpeciesSubsample, self).__init__()
+		self.name = speciesName
+		self.amount = surveyCount
+		self.distance = surveyDistance
+		
+
+
+class SurveyInvertebrate(models.Model):
+	"""
+	SurveyInvertebrate
+	Survey data for Invertebrate organisms
+
+	Discussion:
+	There are a lot of species to cover here
+
+	"""
+
+	# Linked Survey
+	models.ForeignKey(ReefTransect, on_delete=models.CASCADE)
+
+	batStar = models.SpeciesSubsampleField()
+	blackAbalone = models.SpeciesSubsampleField()
+	brownGoldenGorgonian = models.SpeciesSubsampleField()
+	californiaSeaCucumber = models.SpeciesSubsampleField()
+	californiaSpinyLobster = models.SpeciesSubsampleField()
+	chestnutCowry = models.SpeciesSubsampleField()
+	flatAbalone = models.SpeciesSubsampleField()
+	giantKeyholeLimpet = models.SpeciesSubsampleField()
+	giantSpinedStar = models.SpeciesSubsampleField()
+	greenAbalone = models.SpeciesSubsampleField()
+	gumbootChiton = models.SpeciesSubsampleField()
+	kelletsWhelk = models.SpeciesSubsampleField()
+	largeAnenome = models.SpeciesSubsampleField()
+	pinkAbalone = models.SpeciesSubsampleField()
+	pintoAbalone = models.SpeciesSubsampleField()
+	purpleUrchin = models.SpeciesSubsampleField()
+	redAbalone = models.SpeciesSubsampleField()
+	redGorgonian = models.SpeciesSubsampleField()
+	redUrchin = models.SpeciesSubsampleField()
+	rockCrab = models.SpeciesSubsampleField()
+	rockScallop = models.SpeciesSubsampleField()
+	sheepMaskingCrab = models.SpeciesSubsampleField()
+	shortSpinedSeaStar = models.SpeciesSubsampleField()
+	sunflowerSunStar = models.SpeciesSubsampleField()
+	unknownAbalone = models.SpeciesSubsampleField()
+	wartySeaCucumber = models.SpeciesSubsampleField()
+	wavyRedTurbanSnail = models.SpeciesSubsampleField()
+
+	def __init__(self, **kwargs):
+		super(SurveyInvertebrate, self).__init__()
+		for (prop, default) in prop_defaults.iteritems():
+            setattr(self, prop, kwargs.get(prop, default))
+		
+class SurveyAlgae(models.Model):
+	"""
+	SurveyAlgae
+	Should use SpeciesSubsampleField
 	"""
 	
 	# Linked Survey
@@ -115,21 +190,10 @@ class SurveyAlgae(object):
 		super(SurveyAlgae, self).__init__()
 		self.arg = arg
 
-class SurveyInvertebrate(object):
+class SurveyFish(models.Model):
 	"""
-	docstring for SurveyInvertebrate
-	"""
-
-	# Linked Survey
-	models.ForeignKey(ReefTransect, on_delete=models.CASCADE)
-
-	def __init__(self, arg):
-		super(SurveyInvertebrate, self).__init__()
-		self.arg = arg
-
-class SurveyFish(object):
-	"""
-	docstring for SurveyFish
+	SurveyFish
+	Fish cannot be subsampled
 	"""
 
 	# Linked Survey
