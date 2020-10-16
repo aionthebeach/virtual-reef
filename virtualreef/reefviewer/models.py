@@ -78,7 +78,7 @@ class SurveyUPC(models.Model):
 	"""
 
 	# Linked Survey
-	models.ForeignKey(ReefTransect, on_delete=models.CASCADE)
+	transect = models.ForeignKey(ReefTransect, on_delete=models.CASCADE)
 
 	# Cover
 	articulatedCoralline = models.IntegerField(default=0)
@@ -142,25 +142,19 @@ class SurveyInvertebrate(models.Model):
 	"""
 
 	# Linked Survey
-	models.ForeignKey(ReefTransect, on_delete=models.CASCADE)
+	transect = models.ForeignKey(ReefTransect, on_delete=models.CASCADE)
 
 	batStar = SpeciesSubsampleField(speciesName="batStar")
-	blackAbalone = SpeciesSubsampleField(speciesName="blackAbalone")
 	brownGoldenGorgonian = SpeciesSubsampleField(speciesName="brownGoldenGorgonian")
 	californiaSeaCucumber = SpeciesSubsampleField(speciesName="californiaSeaCucumber")
 	californiaSpinyLobster = SpeciesSubsampleField(speciesName="californiaSpinyLobster")
 	chestnutCowry = SpeciesSubsampleField(speciesName="chestnutCowry")
-	flatAbalone = SpeciesSubsampleField(speciesName="flatAbalone")
 	giantKeyholeLimpet = SpeciesSubsampleField(speciesName="giantKeyholeLimpet")
 	giantSpinedStar = SpeciesSubsampleField(speciesName="giantSpinedStar")
-	greenAbalone = SpeciesSubsampleField(speciesName="greenAbalone")
 	gumbootChiton = SpeciesSubsampleField(speciesName="gumbootChiton")
 	kelletsWhelk = SpeciesSubsampleField(speciesName="kelletsWhelk")
 	largeAnenome = SpeciesSubsampleField(speciesName="largeAnenome")
-	pinkAbalone = SpeciesSubsampleField(speciesName="pinkAbalone")
-	pintoAbalone = SpeciesSubsampleField(speciesName="pintoAbalone")
 	purpleUrchin = SpeciesSubsampleField(speciesName="purpleUrchin")
-	redAbalone = SpeciesSubsampleField(speciesName="redAbalone")
 	redGorgonian = SpeciesSubsampleField(speciesName="redGorgonian")
 	redUrchin = SpeciesSubsampleField(speciesName="redUrchin")
 	rockCrab = SpeciesSubsampleField(speciesName="rockCrab")
@@ -168,7 +162,6 @@ class SurveyInvertebrate(models.Model):
 	sheepMaskingCrab = SpeciesSubsampleField(speciesName="sheepMaskingCrab")
 	shortSpinedSeaStar = SpeciesSubsampleField(speciesName="shortSpinedSeaStar")
 	sunflowerSunStar = SpeciesSubsampleField(speciesName="sunflowerSunStar")
-	unknownAbalone = SpeciesSubsampleField(speciesName="unknownAbalone")
 	wartySeaCucumber = SpeciesSubsampleField(speciesName="wartySeaCucumber")
 	wavyRedTurbanSnail = SpeciesSubsampleField(speciesName="wavyRedTurbanSnail")
 
@@ -176,6 +169,26 @@ class SurveyInvertebrate(models.Model):
 		super(SurveyInvertebrate, self).__init__()
 		# for (prop, default) in prop_defaults.iteritems():
 		# 	setattr(self, prop, kwargs.get(prop, default))
+
+class AbaloneField(models.Field):
+	"""
+	AbaloneField
+	Survey data for the Abalone category
+
+	Discussion:
+	Abalone are a Genus of particular interest
+
+	"""
+	blackAbalone = SpeciesSubsampleField(speciesName="blackAbalone")
+	flatAbalone = SpeciesSubsampleField(speciesName="flatAbalone")
+	greenAbalone = SpeciesSubsampleField(speciesName="greenAbalone")
+	pinkAbalone = SpeciesSubsampleField(speciesName="pinkAbalone")
+	pintoAbalone = SpeciesSubsampleField(speciesName="pintoAbalone")
+	redAbalone = SpeciesSubsampleField(speciesName="redAbalone")
+	unknownAbalone = SpeciesSubsampleField(speciesName="unknownAbalone")
+
+	def __init__(self, **kwargs):
+		super(AbaloneField, self).__init__()
 		
 class SurveyAlgae(models.Model):
 	"""
@@ -184,7 +197,7 @@ class SurveyAlgae(models.Model):
 	"""
 	
 	# Linked Survey
-	models.ForeignKey(ReefTransect, on_delete=models.CASCADE)
+	transect = models.ForeignKey(ReefTransect, on_delete=models.CASCADE)
 
 	def __init__(self, arg):
 		super(SurveyAlgae, self).__init__()
@@ -197,7 +210,7 @@ class SurveyFish(models.Model):
 	"""
 
 	# Linked Survey
-	models.ForeignKey(ReefTransect, on_delete=models.CASCADE)
+	transect = models.ForeignKey(ReefTransect, on_delete=models.CASCADE)
 
 	def __init__(self, arg):
 		super(SurveyFish, self).__init__()

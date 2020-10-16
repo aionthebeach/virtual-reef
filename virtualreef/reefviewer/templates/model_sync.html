@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block page_content %}
+
+<div class="col-md-8 offset-md-1">
+	<h1>{{ modelName }}</h1>
+	<article>
+		{% for row in sync %}
+		{{ row }}<br/>
+		{% endfor %}
+	</article>
+</div>
+
+{% endblock %}

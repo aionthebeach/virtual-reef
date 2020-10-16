@@ -13,5 +13,9 @@ def syncUpc(request):
 
 def syncInvert(request):
 	dataSynced = scripts.fetchInvertebrateData()
+	context = {
+		'sync': dataSynced,
+		'modelName': 'Invertebrate'
+	}
+	return render(request, 'model_sync.html', context)
 	return HttpResponse("We synced the Invert data: " + str(dataSynced))
-	
